@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>البيت الملكي للمفروشات | باقة العروض والحجز السريع</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0a1f1c;        /* أخضر ملكي فخم */
+      --primary-light: #123832;
+      --gold: #d4af37;           /* ذهبي ملكي */
+      --gold-gradient: linear-gradient(135deg, #fae084 0%, #d4af37 50%, #aa801e 100%);
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --whatsapp: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 95px;
+    }
+
+    /* الشريط الإعلاني العلوي المتنقل */
+    .promo-bar {
+      background: var(--gold-gradient);
+      color: #000;
+      padding: 8px 15px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* الهيدر الرئيسي */
+    header {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo-txt {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .brand-logo-txt span {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .badge-status {
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* بطاقة الباقة الحصرية */
+    .special-offer-card {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-radius: 20px;
+      padding: 24px 20px;
+      position: relative;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 25px rgba(10, 31, 28, 0.25);
+      overflow: hidden;
+    }
+
+    .special-offer-card::after {
+      content: '👑';
+      position: absolute;
+      left: -15px;
+      bottom: -20px;
+      font-size: 7rem;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .offer-tag {
+      display: inline-block;
+      background: var(--gold-gradient);
+      color: #000;
+      font-weight: 900;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .offer-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .offer-features {
+      list-style: none;
+      margin: 14px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+    }
+
+    .offer-features li::before {
+      content: '✦ ';
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .countdown-timer {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      margin-top: 15px;
+    }
+
+    .timer-digits {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 1.1rem;
+    }
+
+    /* قسم معرض الموديلات */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .model-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 2px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .model-card.active {
+      border-color: var(--gold);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .model-img {
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .model-info {
+      padding: 10px;
+    }
+
+    .model-name {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .model-badge {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* استبيان الحجز والتخصيص السريري/الفني */
+    .survey-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 24px 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .form-group input, 
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fff;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus {
+      border-color: var(--gold);
+    }
+
+    /* اختيار القماش ولون الخشب */
+    .color-swatches {
+      display: flex;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .swatch {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 1px #cbd5e1;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .swatch.active {
+      box-shadow: 0 0 0 2px var(--gold);
+      transform: scale(1.15);
+    }
+
+    /* شريط التأكيد السفلي العائم */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      padding: 14px 20px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      z-index: 1000;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--gold-gradient);
+      color: #000;
+      border: none;
+      padding: 15px;
+      border-radius: 14px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+      transition: transform 0.1s;
+    }
+
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط العرض الحصري الترويجي -->
+  <div class="promo-bar">
+    <span>🔥 حسم الباقة الملكية فعال الآن: تفصيل وضمان 5 سنوات مجاناً</span>
+  </div>
+
+  <!-- الهيدر -->
+  <header>
+    <div class="brand-box">
+      <div style="font-size: 1.6rem;">🛋️</div>
+      <div class="brand-logo-txt">
+        البيت الملكي
+        <span>ROYAL HOUSE</span>
+      </div>
+    </div>
+    <div class="badge-status">متاح للتفصيل المباشر</div>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. بطاقة باقة العرض الخاص لصاحب المعرض -->
+    <div class="special-offer-card">
+      <span class="offer-tag">باقة صالون المواسم 2026 الحصرية</span>
+      <h2 class="offer-title">طقم الزاوية الملكي المتكامل + طاولة ضيافة هدية</h2>
+      <ul class="offer-features">
+        <li>هيكل خشب زان روماني معالج بالكامل ضد الرطوبة وعوامل الزمن.</li>
+        <li>إسفنج طبي دنلوب عالي الكثافة (ضغط 35) لضمان الراحة لسنوات.</li>
+        <li>أقمشة مخملية معالجة بتكنولوجيا مقاومة السوائل والأوساخ.</li>
+        <li>التوصيل والتركيب المباشر داخل كافة المحافظات مع شهادة ضمان.</li>
+      </ul>
+
+      <div class="countdown-timer">
+        <span style="font-size: 0.85rem;">⏳ ينتهي حجز باقة العرض الحالي خلال:</span>
+        <span class="timer-digits" id="timer">11:43:20</span>
+      </div>
+    </div>
+
+    <!-- 2. استعراض الموديلات المشمولة بالعرض -->
+    <div>
+      <div class="section-title"><span>01.</span> اختر الموديل المطلوب</div>
+      <p class="section-sub">اضغط على الموديل الذي يناسب ذوقك ومساحة منزلك</p>
+      
+      <div class="models-grid">
+        <div class="model-card active" onclick="selectModel(this, 'كنب رويال زاوية كلاسيك')">
+          <div class="model-img" style="background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80');"></div>
+          <div class="model-info">
+            <div class="model-name">طقم رويال كلاسيك</div>
+            <div class="model-badge">أكثر طلباً للمنازل الفخمة</div>
+          </div>
+        </div>
+
+        <div class="model-card" onclick="selectModel(this, 'صالون مودرن تركي مستقيم')">
+          <div class="model-img" style="background-image: url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80');"></div>
+          <div class="model-info">
+            <div class="model-name">صالون مودرن تركي</div>
+            <div class="model-badge">تصميم بسيط وألوان عصرية</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. استبيان التخصيص والمقاسات (الفرز الذكي) -->
+    <div class="survey-card">
+      <div class="section-title"><span>02.</span> استبيان التخصيص وتثبيت الحجز</div>
+      <p class="section-sub">البيانات تُرسل مباشرة إلى منسق الإنتاج لتسعير وتأكيد طلبك</p>
+
+      <form onsubmit="handleOrderSubmission(event)">
+        <!-- الاسم الكريم -->
+        <div class="form-group">
+          <label>الاسم الكامل:</label>
+          <input type="text" id="custName" placeholder="مثال: أ. محمد العلي" required>
+        </div>
+
+        <!-- لون القماش المفضل -->
+        <div class="form-group">
+          <label>لون القماش المفضل:</label>
+          <div class="color-swatches">
+            <div class="swatch active" style="background-color: #0b2b26;" data-cname="أخضر ملكي داكن" onclick="selectColor(this)"></div>
+            <div class="swatch" style="background-color: #172554;" data-cname="كحلي ملكي" onclick="selectColor(this)"></div>
+            <div class="swatch" style="background-color: #d6c7b2;" data-cname="بيج كلاسيك" onclick="selectColor(this)"></div>
+            <div class="swatch" style="background-color: #475569;" data-cname="رمادي عصري" onclick="selectColor(this)"></div>
+          </div>
+          <input type="hidden" id="selectedColorVal" value="أخضر ملكي داكن">
+        </div>
+
+        <!-- أبعاد الغرفة والمقاس -->
+        <div class="form-group">
+          <label>المقاس التقديري للغرفة:</label>
+          <select id="roomDimensions">
+            <option value="قياسي جاهز (3×2 متر)">قياسي جاهز (3×2 متر)</option>
+            <option value="صالون كبير (4×3 متر)">صالون كبير (4×3 متر)</option>
+            <option value="تفصيل خاص حسب المخطط الهندسي">تفصيل خاص حسب قياس غرفتي</option>
+          </select>
+        </div>
+
+        <!-- المحافظة وعنوان التسليم -->
+        <div class="form-group">
+          <label>المحافظة للتوصيل والتركيب:</label>
+          <select id="custGov">
+            <option value="دمشق">دمشق</option>
+            <option value="ريف دمشق">ريف دمشق</option>
+            <option value="حلب">حلب</option>
+            <option value="حمص">حمص</option>
+            <option value="حماة">حماة</option>
+            <option value="اللاذقية">اللاذقية</option>
+            <option value="طرطوس">طرطوس</option>
+            <option value="محافظة أخرى">محافظة أخرى</option>
+          </select>
+        </div>
+
+        <!-- حالة الاستعجال -->
+        <div class="form-group">
+          <label>توقيت التسليم المطلوب:</label>
+          <select id="deliveryUrgency">
+            <option value="جاهز للتثبيت والاستلام الفوري">جاهز للشراء فوراً مع باقة الحسم</option>
+            <option value="خلال أسبوعين من تاريخ الحجز">خلال أسبوعين</option>
+            <option value="تنسيق وتجهيز لمنزل قيد الإكساء">أجهز لمنزل جديد (قيد الإكساء)</option>
+          </select>
+        </div>
+
+        <!-- زر التأكيد السفلي العائم -->
+        <div class="bottom-bar">
+          <button type="submit" class="submit-btn">
+            <span>💬 إرسال الاستبيان وتثبيت كود الباقة الملكية</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    let chosenModel = "كنب رويال زاوية كلاسيك";
+
+    // اختيار الموديل
+    function selectModel(cardElem, modelTitle) {
+      document.querySelectorAll('.model-card').forEach(c => c.classList.remove('active'));
+      cardElem.classList.add('active');
+      chosenModel = modelTitle;
+    }
+
+    // اختيار اللون
+    function selectColor(swatchElem) {
+      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+      swatchElem.classList.add('active');
+      document.getElementById('selectedColorVal').value = swatchElem.getAttribute('data-cname');
+    }
+
+    // عداد زمني وهمي لزيادة الاستعجال والجدية لدى الزبون
+    let sec = 43200;
+    setInterval(() => {
+      sec--;
+      let h = Math.floor(sec / 3600);
+      let m = Math.floor((sec % 3600) / 60);
+      let s = sec % 60;
+      document.getElementById('timer').innerText = 
+        `${h < 10 ? '0'+h : h}:${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
+    }, 1000);
+
+    // توجيه الطلب إلى رقم الواتساب المعتمد
+    function handleOrderSubmission(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('custName').value;
+      const color = document.getElementById('selectedColorVal').value;
+      const size = document.getElementById('roomDimensions').value;
+      const gov = document.getElementById('custGov').value;
+      const urgency = document.getElementById('deliveryUrgency').value;
+      const orderCode = 'RYL-' + Math.floor(1000 + Math.random() * 9000);
+
+      const msg = `السلام عليكم ورحمة الله وبركاته 👑\n` +
+                  `طلب تثبيت استبيان باقة العرض الخاص (البيت الملكي):\n\n` +
+                  `🔖 *كود الحجز:* ${orderCode}\n` +
+                  `👤 *اسم المراجع:* ${name}\n` +
+                  `🛋️ *الموديل المختار:* ${chosenModel}\n` +
+                  `🎨 *لون القماش:* ${color}\n` +
+                  `📐 *المقاس المطلوب:* ${size}\n` +
+                  `📍 *المحافظة:* ${gov}\n` +
+                  `⏱️ *جاهزية الاستلام:* ${urgency}\n\n` +
+                  `يرجى تأكيد اعتماد الخصم وحساب التكلفة النهائية للتوصيل.`;
+
+      // الرقم المعتمد في سوريا
+      const phone = "963995382496";
+      const targetUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      
+      window.open(targetUrl, '_blank');
+    }
+  </script>
+</body>
+  </html>
+  
